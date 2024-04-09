@@ -1,7 +1,8 @@
 // @flow
 "use strict";
 
-const sqlite3 = require("sqlite3");
+import pkg from 'sqlite3';
+const { Database, OPEN_READWRITE } = pkg;
 
 class SQLite {
 
@@ -15,7 +16,7 @@ class SQLite {
 
 		return new Promise((resolve, reject) => {
 
-			this.db = new sqlite3.Database(fileName, sqlite3.OPEN_READWRITE, (error) => {
+			this.db = new Database(fileName, OPEN_READWRITE, (error) => {
 
 				if (error === null) {
 
@@ -115,4 +116,4 @@ class SQLite {
 
 }
 
-module.exports = SQLite;
+export default SQLite;

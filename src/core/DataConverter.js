@@ -1,11 +1,11 @@
 // @flow
 "use strict";
 
-const geojsonvt = require("geojson-vt");
-const Pbf = require("pbf");
-const { VectorTile } = require("@mapbox/vector-tile");
-const vtpbf = require("vt-pbf");
-const Utils = require("./Utils");
+import geojsonvt from "geojson-vt";
+import Pbf from "pbf";
+import { VectorTile } from "@mapbox/vector-tile";
+import { fromGeojsonVt } from "vt-pbf";
+import Utils from "./Utils.js";
 
 class DataConverter {
 
@@ -58,7 +58,7 @@ class DataConverter {
 
 		});
 
-		const buffer = vtpbf.fromGeojsonVt(tiles, {version: 2});
+		const buffer = fromGeojsonVt(tiles, {version: 2});
 		const binBuffer = Buffer.from(buffer);
 
 		return binBuffer;
@@ -116,4 +116,4 @@ class DataConverter {
 
 }
 
-module.exports = DataConverter;
+export default DataConverter;

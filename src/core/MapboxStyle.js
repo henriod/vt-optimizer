@@ -1,14 +1,14 @@
 // @flow
 "use strict";
 
-const IO = require("./IO");
-const MapboxStyleLayer = require("./MapboxStyleLayer");
+import IO from "./IO.js";
+import MapboxStyleLayer from "./MapboxStyleLayer.js";
 
 /*
 * Loads a Mapbox Style following the specification found in
 * https://www.mapbox.com/mapbox-gl-js/style-spec/
 */
-class MapboxStyle {
+export default class MapboxStyle {
 
 	constructor(fileName) {
 
@@ -119,5 +119,3 @@ class MapboxStyle {
 	}
 
 }
-
-module.exports = MapboxStyle;

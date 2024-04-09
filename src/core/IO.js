@@ -1,28 +1,26 @@
 // @flow
 "use strict";
 
-const fs = require("fs");
+import { readFileSync, copyFileSync as _copyFileSync, unlinkSync } from "fs";
 
-class IO {
+export default class IO {
 
 	static readSync(filename) {
 
-		return fs.readFileSync(filename);
+		return readFileSync(filename);
 
 	}
 
 	static copyFileSync(srcFile, destFile) {
 
-		return fs.copyFileSync(srcFile, destFile);
+		return _copyFileSync(srcFile, destFile);
 
 	}
 
 	static deleteFileSync(fileName) {
 
-		return fs.unlinkSync(fileName);
+		return unlinkSync(fileName);
 
 	}
 
 }
-
-module.exports = IO;

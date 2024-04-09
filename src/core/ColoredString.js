@@ -1,23 +1,21 @@
 // @flow
 "use strict";
 
-const chalk = require("chalk");
+import chalk from 'chalk';
 
 class ColoredString {
 
 	static format(color, ...args) {
-
 		return color(args);
-
 	}
+
+	static blue = chalk.blue;
+	static yellow = chalk.yellow;
+	static red = chalk.red;
+	static green = chalk.green;
+	static white = chalk.white;
+	static bold = chalk.bold;
 
 }
 
-ColoredString.blue = chalk.blue;
-ColoredString.yellow = chalk.yellow;
-ColoredString.red = chalk.red;
-ColoredString.green = chalk.green;
-ColoredString.white = chalk.white;
-ColoredString.bold = chalk.bold;
-
-module.exports = ColoredString;
+export default ColoredString;

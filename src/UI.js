@@ -1,11 +1,10 @@
 // @flow
 /*eslint camelcase: ["error", {allow: ["zoom_level", "tile_row", "tile_column"]}]*/
 "use strict";
-
-const Inquirer = require("inquirer");
-const ColoredString = require("./core/ColoredString");
-const Log = require("./core/Log");
-const Utils = require("./core/Utils");
+import inquirer  from "inquirer";
+import ColoredString from "./core/ColoredString.js";
+import Log from "./core/Log.js";
+import Utils from "./core/Utils.js";
 
 class UI {
 
@@ -108,7 +107,7 @@ class UI {
 
 		return new Promise((resolve) => {
 
-			Inquirer.prompt([
+			inquirer.prompt([
 				{
 					type: "confirm",
 					name: "extraInfo",
@@ -133,7 +132,7 @@ class UI {
 
 		return new Promise(resolve => {
 
-			Inquirer.prompt([{
+			inquirer.prompt([{
 				type: "list",
 				name: "zoomLevel",
 				message: "Select a level",
@@ -216,7 +215,7 @@ class UI {
 
 		return new Promise(resolve => {
 
-			Inquirer.prompt([
+			inquirer.prompt([
 				{
 					type: "confirm",
 					name: "extraInfo",
@@ -248,7 +247,7 @@ class UI {
 
 		return new Promise(resolve => {
 
-			Inquirer.prompt([{
+			inquirer.prompt([{
 				type: "list",
 				name: "bucket",
 				message: "Select a bucket",
@@ -287,7 +286,7 @@ class UI {
 
 		return new Promise(resolve => {
 
-			Inquirer.prompt([
+			inquirer.prompt([
 				{
 					type: "confirm",
 					name: "extraTileInfo",
@@ -312,7 +311,7 @@ class UI {
 
 		return new Promise(resolve => {
 
-			Inquirer.prompt([{
+			inquirer.prompt([{
 				type: "list",
 				name: "tile",
 				message: "Select a tile",
@@ -411,4 +410,4 @@ class UI {
 
 }
 
-module.exports = UI;
+export default UI;

@@ -2,11 +2,11 @@
 /*eslint camelcase: ["error", {allow: ["zoom_level", "tile_row", "tile_column"]}]*/
 "use strict";
 
-const Pbf = require("pbf");
-const zlib = require("zlib");
-const SQLite = require("./SQLite");
-const Utils = require("./Utils");
-const { Tile } = require("./vector-tile");
+import Pbf from "pbf";
+import { gzipSync, constants } from "zlib";
+import SQLite from "./SQLite.js";
+import Utils from "./Utils.js";
+import Tile from "./vector-tile.js";
 
 class VTWriter {
 
@@ -87,7 +87,7 @@ class VTWriter {
 						Tile.write(element, pbf);
 						const buffer = pbf.finish();
 						const binBuffer = Buffer.from(buffer);
-						const compressedBuffer = zlib.gzipSync(binBuffer, {level: zlib.constants.Z_BEST_COMPRESSION});
+						const compressedBuffer = gzipSync(binBuffer, {level: constants.Z_BEST_COMPRESSION});
 
 						if (isUsingImagesTable) {
 
@@ -190,11 +190,11 @@ class VTWriter {
 
 		const self = this;
 
-		const compressedBuffer = zlib.gzipSync(binaryBuffer, {level: zlib.constants.Z_BEST_COMPRESSION});
+		const compressedBuffer = gzipSync(binaryBuffer, {level: constants.Z_BEST_COMPRESSION});
 		await self.updateImage(z, x, y, compressedBuffer);
 
 	}
 
 }
 
-module.exports = VTWriter;
+export default VTWriter;

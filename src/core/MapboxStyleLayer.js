@@ -1,13 +1,13 @@
 // @flow
 "use strict";
 
-const PaintPropertiesToCheck = require("../PaintPropertiesToCheck");
+import PaintPropertiesToCheck from "../PaintPropertiesToCheck.js";
 
 /*
 * Represents a layer according to the specification found in
 * https://www.mapbox.com/mapbox-gl-js/style-spec/
 */
-class MapboxStyleLayer {
+export default class MapboxStyleLayer {
 
 	constructor(data) {
 
@@ -114,5 +114,3 @@ class MapboxStyleLayer {
 	}
 
 }
-
-module.exports = MapboxStyleLayer;
